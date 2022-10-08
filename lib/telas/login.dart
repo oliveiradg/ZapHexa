@@ -124,7 +124,7 @@ class _LoginState extends State<Login> {
                               width: double.infinity,
                               child: ElevatedButton(
                                 onPressed: () {},
-                                child: Text('Login'),
+                                child: _cadastroUsuario? Text("Cadastro") : Text('Login'),
                                 style: ElevatedButton.styleFrom(
                                   primary: PaletaCores.corPrimaria,
                                   padding: EdgeInsets.symmetric(
