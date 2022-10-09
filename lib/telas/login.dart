@@ -17,6 +17,37 @@ class _LoginState extends State<Login> {
       TextEditingController(text: '12345678');
   bool _cadastroUsuario = false;
 
+  _validarCampos() {
+    String nome = _controlleNome.text;
+    String email = _controlleEmail.text;
+    String senha = _controlleSenha.text;
+
+  
+      if (email.isNotEmpty && email.contains('@')) {
+        if (senha.isNotEmpty && senha.length > 6) {
+          if (_cadastroUsuario) {
+            //cadastrar
+
+            if(nome.isNotEmpty && nome.length > 3){
+
+            }else{
+              print("Nome inválido, digite um nome com mais de 3 caracteres");
+            }
+
+
+
+          } else {
+            //login
+          }
+        }else{
+          print("Senha inválida, digite uma senha com 8 caracteres");
+        }
+      }else{
+        print("Email inválido, digite um email válido");
+      }
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     double alturaTela = MediaQuery.of(context).size.height;
@@ -53,14 +84,13 @@ class _LoginState extends State<Login> {
                         child: Column(
                           children: [
                             //imagem perfil com botão
-                           Visibility(
-                            visible: _cadastroUsuario,
-                            child:  ClipOval(
-                              child: Image.asset("image/perfil.png",
-                                  width: 120, 
-                                  height: 120, 
-                                  fit: BoxFit.cover),
-                            ), ),
+                            Visibility(
+                              visible: _cadastroUsuario,
+                              child: ClipOval(
+                                child: Image.asset("image/perfil.png",
+                                    width: 120, height: 120, fit: BoxFit.cover),
+                              ),
+                            ),
 
                             SizedBox(
                               height: 8,
@@ -68,11 +98,10 @@ class _LoginState extends State<Login> {
 
                             Visibility(
                               visible: _cadastroUsuario,
-                              child:  TextButton(
-                                onPressed: () {}, 
-                                child: Text("Selecionar foto")),
-                           ),
-
+                              child: TextButton(
+                                  onPressed: () {},
+                                  child: Text("Selecionar foto")),
+                            ),
 
                             SizedBox(
                               height: 8,
@@ -123,8 +152,12 @@ class _LoginState extends State<Login> {
                             Container(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: () {},
-                                child: _cadastroUsuario? Text("Cadastro") : Text('Login'),
+                                onPressed: () {
+                                  _validarCampos();
+                                },
+                                child: _cadastroUsuario
+                                    ? Text("Cadastro")
+                                    : Text('Login'),
                                 style: ElevatedButton.styleFrom(
                                   primary: PaletaCores.corPrimaria,
                                   padding: EdgeInsets.symmetric(
