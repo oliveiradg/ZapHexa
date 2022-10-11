@@ -1,6 +1,6 @@
 {
-    "name": "zap_hx",
-    "short_name": "zap_hx",
+    "name": "whatsappweb",
+    "short_name": "whatsappweb",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

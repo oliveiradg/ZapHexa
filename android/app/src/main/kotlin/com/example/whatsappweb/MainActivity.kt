@@ -1,4 +1,4 @@
-package br.com.jboliveira.zap_hx
+package com.example.whatsappweb
 
 import io.flutter.embedding.android.FlutterActivity
 
